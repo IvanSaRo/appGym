@@ -21,7 +21,7 @@ router.post(
   [
     check("nombre").isLength({ min: 2 }),
     check("apellidos").isLength({ min: 2 }),
-    check("direccion").isLength({ min: 2 }),
+    check("direccion").isLength({ min: 5 }),
     check("email").isEmail(),
     check("edad").isNumeric(),
     check("sexo").isLength({ min: 1 }),

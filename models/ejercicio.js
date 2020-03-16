@@ -50,9 +50,24 @@ const deleteById = pEjercicioId => {
   });
 };
 
+const update = (pBody, pUsuarioId) => {
+  return new Promise((resolve, reject) => {
+    db.query(
+      "update ejercicios set titulo = ?, duracion = ?, repeticiones = ? where id = " +
+        pUsuarioId,
+      [pBody.titulo, pBody.duracion, pBody.repeticiones],
+      (err, result) => {
+        if (err) reject(err);
+        resolve(result);
+      }
+    );
+  });
+};
+
 module.exports = {
   getAll: getAll,
   getById: getById,
   create: create,
-  deleteById: deleteById
+  deleteById: deleteById,
+  update: update
 };

@@ -34,4 +34,13 @@ router.delete("/:ejercicioId", async (req, res) => {
     res.json({ error: "No se ha podido borrar" });
   }
 });
+
+//PUT http://localhost:3000/api/clientes/:pClienteId
+router.put("/:usuarioId", async (req, res) => {
+  const result = await Ejercicio.update(req.body, req.params.usuarioId)
+    .then(result => res.json(result))
+    .catch(err => {
+      res.json({ error: "No se ha podido editar el cliente" });
+    });
+});
 module.exports = router;
